@@ -17,6 +17,7 @@ interface Data {
     image: string,
     name: string,
     email: string,
+    url: string,
     whatsapp: string,
     city: string,
     uf: string,
@@ -65,7 +66,7 @@ const Detail: React.FC = () => {
           <Icon name="arrow-left" size={20} color="#34cb79" />
         </TouchableOpacity>
 
-        <Image style={styles.pointImage} source={{ uri: data.point.image }} />
+        <Image style={styles.pointImage} source={{ uri: data.point.url }} />
 
         <Text style={styles.pointName}>{data.point.name}</Text>
         <Text style={styles.pointItems}>{data.items.map(item => item.title).join('')}</Text>
@@ -77,7 +78,7 @@ const Detail: React.FC = () => {
       </View>
 
       <View style={styles.footer}>
-        <RectButton style={styles.button} onPress={() => { }}>
+        <RectButton style={styles.button} onPress={handleWhatsapp}>
           <FontAwesome name='whatsapp' size={20} color="#fff" />
           <Text style={styles.buttonText}>Whatsapp</Text>
         </RectButton>
